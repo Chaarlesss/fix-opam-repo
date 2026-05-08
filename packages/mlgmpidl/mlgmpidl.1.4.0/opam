@@ -1,0 +1,37 @@
+opam-version: "2.0"
+authors: ["Bertrand Jeannet" "Nicolas Berthier"]
+maintainer: "Charles de Haro <deharo@di.ens.fr>"
+dev-repo: "git+https://github.com/Chaarlesss/mlgmpidl.git"
+bug-reports: "https://github.com/Chaarlesss/mlgmpidl/issues"
+homepage: "https://www.inrialpes.fr/pop-art/people/bjeannet/mlxxxidl-forge/mlgmpidl/"
+license: "LGPL-2.1-only WITH OCaml-LGPL-linking-exception"
+build: [
+  ["sh" "./configure"]
+  [make]
+]
+install: [
+  [make "install"]
+]
+depends: [
+  "ocaml" {>= "4.08.0"}
+  "ocamlfind" {build & >= "1.5.6"}
+  "camlidl" {!= "1.10"}
+  "conf-pkg-config"
+  "conf-gmp"
+  "conf-mpfr"
+  "conf-perl" {build}
+  "bigarray-compat"
+]
+conflicts: [
+  "mlgmp"
+  "apron" {= "20140725"}
+  "apron" {= "20150518"}
+]
+synopsis: "OCaml interface to the GMP library"
+url {
+  src: "https://github.com/Chaarlesss/mlgmpidl/archive/refs/tags/1.4.0.tar.gz"
+  checksum: [
+    "sha256=06f9f1af19e9ec81374963b0d99c7876b5a95324cddbf8efa8be3f3e42618f10"
+    "md5=5b83f87ed7f6e956be0fc49dd4a4b338"
+  ]
+}
